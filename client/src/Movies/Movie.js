@@ -1,6 +1,6 @@
-import React from "react"
-import axios from "axios"
-import MovieCard from "./MovieCard"
+import React from 'react'
+import axios from 'axios'
+import MovieCard from './MovieCard'
 export default class Movie extends React.Component {
   constructor (props) {
     super (props)
@@ -22,8 +22,8 @@ export default class Movie extends React.Component {
   fetchMovie = (id) => {
     axios
       .get (`http://localhost:5000/api/movies/${id}`)
-      .then ((res) => this.setState ({ movie: res.data }))
-      .catch ((err) => console.log (err.response))
+      .then ((response) => this.setState ({ movie: response.data }))
+      .catch ((error) => console.log (error.response))
   }
 
   saveMovie = () => {
@@ -37,9 +37,9 @@ export default class Movie extends React.Component {
     }
 
     return (
-      <div className="save-wrapper">
+      <div className='save-wrapper'>
         <MovieCard movie={this.state.movie} />
-        <div className="save-button" onClick={this.saveMovie}>
+        <div className='save-button' onClick={this.saveMovie}>
           Save
         </div>
       </div>
