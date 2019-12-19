@@ -8,7 +8,9 @@ const route = {
 
 route.to.root =
   () => (`/`)
-route.to.movies =
+route.to.allMovies =
+  () => (`/movies`)
+route.to.oneMovie =
   (id) => (`/movies/${id}`)
 
 route.full = fill (route.base, route.to)
