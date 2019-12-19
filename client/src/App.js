@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import { Route } from 'react-router-dom'
+
+import { client } from 'routes'
+
 import SavedList from './Movies/SavedList'
 import MovieList from './Movies/MovieList'
 import Movie from './Movies/Movie'
@@ -14,9 +17,9 @@ const App = () => {
   return (
     <>
       <SavedList list={savedList} />
-      <Route exact path='/' component={MovieList} />
+      <Route exact path={client.to.root ()} component={MovieList} />
       <Route
-        path='/movies/:id'
+        path={client.to.oneMovie (':id')}
         render={(props) => {
           return <Movie {...props} addToSavedList={addToSavedList} />
         }}
