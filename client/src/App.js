@@ -23,6 +23,7 @@ const App = () => {
       <Route
         exact path={[
           client.path.root (),
+          client.path.movies.all.VIEW (),
         ]}
         component={MovieList}
       />
