@@ -6,9 +6,9 @@ import {
 
 import { client } from 'routes'
 
-import SavedList from './Movies/SavedList'
-import MovieList from './Movies/MovieList'
-import Movie from './Movies/Movie'
+import SavedList from 'components/SavedList'
+import MovieList from 'components/MovieList'
+import Movie from 'components/Movie'
 
 const App = () => {
   const [ savedList, setSavedList ] = useState ([])
