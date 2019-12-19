@@ -17,6 +17,8 @@ const root = () => ('/')
 const allMovies = {}
 allMovies.VIEW =
   () => (`/movies`)
+allMovies.ADD =
+  () => (`/movies/add`)
 
 /// .oneMovie ///
 const oneMovie = {}
