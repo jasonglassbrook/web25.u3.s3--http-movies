@@ -1,11 +1,14 @@
 import fill from './_fill';
 
+/**************************************/
+
+/// route, route.base ///
 const route = {
-  base : '',
-  to   : {},
-  full : {},
+  base : ''
 }
 
+/// route.to ///
+route.to = {}
 route.to.root =
   () => (`/`)
 route.to.allMovies =
@@ -13,6 +16,9 @@ route.to.allMovies =
 route.to.oneMovie =
   (id) => (`/movies/${id}`)
 
-route.full = fill (route.base, route.to)
+/// route.url ///
+route.url = fill (route.base, route.to)
+
+/**************************************/
 
 export default route

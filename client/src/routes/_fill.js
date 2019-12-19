@@ -1,7 +1,9 @@
+import { like } from 'tools/iffy'
+
 const fill = (base, ends) => (
   Object.fromEntries (
     Object.entries (ends).map (([ key, x ]) => {
-      if (Object.isObject (x)) {
+      if (like ('Object', x)) {
         return [ key, fill (base, x) ]
       }
       else {
