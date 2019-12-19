@@ -9,9 +9,13 @@ const route = {
 
 /// route.to ///
 route.to = {}
-/// - .movies ///
-route.to.movies = {};
-route.to.movies.GET =
+/// - .allMovies ///
+route.to.allMovies = {};
+route.to.allMovies.GET =
+  () => (`/movies`)
+/// - .oneMovie ///
+route.to.oneMovies = {};
+route.to.oneMovies.GET =
   (id) => (`/movies/${id}`)
 
 /// route.url ///
