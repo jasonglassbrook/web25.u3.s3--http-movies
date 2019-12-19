@@ -11,9 +11,9 @@ export default class SavedList extends Component {
         {this.props.list.map ((movie) => {
           return (
             <NavLink
-              to={client.path.movies.all.VIEW ()}
-              key={movie.id}
-              activeClassName='saved-active'
+            to={client.path.movies.one.VIEW (movie.id)}
+            key={movie.id}
+            activeClassName='saved-active'
             >
               <span className='saved-movie'>{movie.title}</span>
             </NavLink>
