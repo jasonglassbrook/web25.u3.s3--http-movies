@@ -9,6 +9,9 @@ import { client } from 'routes'
 import SavedList from 'components/SavedList'
 import MovieList from 'components/MovieList'
 import Movie from 'components/Movie'
+// import AddMovieForm from 'components/AddMovieForm'
+import EditMovieForm from 'components/EditMovieForm'
+import DeleteMovieForm from 'components/DeleteMovieForm'
 
 const App = () => {
   const [ savedList, setSavedList ] = useState ([])
@@ -38,13 +41,13 @@ const App = () => {
       <Route
         exact path={client.path.movies.one.EDIT (':id')}
         render={(props) => (
-          <EditMovie {...props}/>
+          <EditMovieForm {...props}/>
         )}
       />
       <Route
         exact path={client.path.movies.one.DELETE (':id')}
         render={(props) => (
-          <DeleteMovie {...props}/>
+          <DeleteMovieForm {...props}/>
         )}
       />
     </Router>
