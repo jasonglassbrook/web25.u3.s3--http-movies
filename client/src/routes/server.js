@@ -17,10 +17,16 @@ const movies = {}
 movies.all = {}
 movies.all.GET =
   () => (`/movies`)
+movies.all.POST =
+  () => (`/movies`)
 
 /// .movies.one ///
 movies.one = {}
 movies.one.GET =
+  (id) => (`/movies/${id}`)
+movies.one.PUT =
+  (id) => (`/movies/${id}`)
+movies.one.DELETE =
   (id) => (`/movies/${id}`)
 
 /// assemble! ///
