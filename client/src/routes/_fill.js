@@ -1,13 +1,19 @@
 import { like } from 'tools/iffy'
 
-const fill = (base, ends) => (
+const fill = (base, path) => (
   Object.fromEntries (
-    Object.entries (ends).map (([ key, x ]) => {
+    Object.entries (path).map (([ key, x ]) => {
       if (like ('Object', x)) {
-        return [ key, fill (base, x) ]
+        return [
+          key,
+          fill (base, x),
+        ]
       }
       else {
-        return [ key, (...args) => (base + x (...args)) ]
+        return [
+          key,
+          (...args) => (base + x (...args)),
+        ]
       }
     })
   )
