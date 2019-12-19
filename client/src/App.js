@@ -30,10 +30,21 @@ const App = () => {
       <Route
         path={client.path.movies.one.VIEW (':id')}
         render={(props) => (
-          <Movie
-          {...props}
+          <Movie {...props}
           addToSavedList={addToSavedList}
           />
+        )}
+      />
+      <Route
+        exact path={client.path.movies.one.EDIT (':id')}
+        render={(props) => (
+          <EditMovie {...props}/>
+        )}
+      />
+      <Route
+        exact path={client.path.movies.one.DELETE (':id')}
+        render={(props) => (
+          <DeleteMovie {...props}/>
         )}
       />
     </Router>
