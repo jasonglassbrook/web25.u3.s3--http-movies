@@ -31,7 +31,7 @@ const App = () => {
         component={MovieList}
       />
       <Route
-        path={client.path.movies.one.VIEW (':id')}
+        exact path={client.path.movies.one.VIEW (':id')}
         render={(props) => (
           <Movie {...props}
           addToSavedList={addToSavedList}
