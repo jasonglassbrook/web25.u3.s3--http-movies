@@ -8,9 +8,9 @@
 -   [x] In a separate terminal cd into the `client` folder and run `yarn install` to download dependencies.
 -   [x] Still inside the `client` folder run `yarn start` to run the client application.
 
-### Part 1 - Updating A Movie
+### Part 1 - Editing A Movie
 
--   [ ] Add a route at the path `/update-movie/:id`
+-   [x] Add a route at the path `/movies/:id/edit`
 -   [ ] Create a component with a form to update the chosen movie
 -   [ ] Add a button in the movie component that routes you to your new route with the movies's id as the URL param
 -   [ ] The form should make a PUT request to the server when submitted
@@ -31,6 +31,7 @@ Movie object format:
 ### Part 2 - Deleting A Movie
 
 -   [ ] Add a delete button in the movie component that makes a DELETE request
+-   [x] Add a route for confirming deletion: `/movies/:id/delete`
 -   [ ] When the call comes back successfully, route the user to `/movies` where they will see the updated movie list without the deleted movie
 
 ### Part 3 (Stretch) - Adding A Movie
