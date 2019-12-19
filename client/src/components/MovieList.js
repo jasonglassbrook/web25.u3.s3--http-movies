@@ -15,7 +15,7 @@ export default class MovieList extends Component {
 
   componentDidMount () {
     axios
-    .get (server.url.allMovies.GET ())
+    .get (server.full.movies.all.GET ())
     .then ((response) => {
       console.log (response);
       this.setState ({ movies: response.data })
@@ -38,7 +38,7 @@ export default class MovieList extends Component {
 
 function MovieDetails ({ movie }) {
   return (
-    <Link to={client.path.oneMovie.VIEW (movie.id)}>
+    <Link to={client.path.movies.one.VIEW (movie.id)}>
       <MovieCard movie={movie} />
     </Link>
   )

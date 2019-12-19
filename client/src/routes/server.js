@@ -10,29 +10,31 @@ const base = 'http://localhost:5000/api'
   path[s]
 ***************************************/
 
-/// .allMovies ///
-const allMovies = {}
-allMovies.GET =
+/// .movies ///
+const movies = {}
+
+/// .movies.all ///
+movies.all = {}
+movies.all.GET =
   () => (`/movies`)
 
-/// .oneMovie ///
-const oneMovie = {}
-oneMovie.GET =
+/// .movies.one ///
+movies.one = {}
+movies.one.GET =
   (id) => (`/movies/${id}`)
 
 /// assemble! ///
 const path = {
-  allMovies,
-  oneMovie,
+  movies,
 }
 
 /***************************************
-  url[s]
+  full[s]
 ***************************************/
 
-const url = fill (base, path)
+const full = fill (base, path)
 
 /**************************************/
 
-export default { base, path, url }
-export { base, path, url }
+export default { base, path, full }
+export { base, path, full }

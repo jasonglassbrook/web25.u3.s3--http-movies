@@ -19,13 +19,21 @@ const App = () => {
 
   return (
     <Router>
-      <SavedList list={savedList} />
-      <Route exact path={client.path.root ()} component={MovieList} />
+      <SavedList list={savedList}/>
       <Route
-        path={client.path.oneMovie.VIEW (':id')}
-        render={(props) => {
-          return <Movie {...props} addToSavedList={addToSavedList} />
-        }}
+        exact path={[
+          client.path.root (),
+        ]}
+        component={MovieList}
+      />
+      <Route
+        path={client.path.movies.one.VIEW (':id')}
+        render={(props) => (
+          <Movie
+          {...props}
+          addToSavedList={addToSavedList}
+          />
+        )}
       />
     </Router>
   )

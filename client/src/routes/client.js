@@ -13,36 +13,38 @@ const base = ''
 /// .root ///
 const root = () => ('/')
 
-/// .allMovies ///
-const allMovies = {}
-allMovies.VIEW =
+/// .movies ///
+const movies = {}
+
+/// .movies.all ///
+movies.all = {}
+movies.all.VIEW =
   () => (`/movies`)
-allMovies.ADD =
+movies.all.ADD =
   () => (`/movies/add`)
 
-/// .oneMovie ///
-const oneMovie = {}
-oneMovie.VIEW =
+/// .movies.one ///
+movies.one = {}
+movies.one.VIEW =
   (id) => (`/movies/${id}`)
-oneMovie.EDIT =
+movies.one.EDIT =
   (id) => (`/movies/${id}/edit`)
-oneMovie.DELETE =
+movies.one.DELETE =
   (id) => (`/movies/${id}/delete`)
 
 /// assemble! ///
 const path = {
   root,
-  allMovies,
-  oneMovie,
+  movies,
 }
 
 /***************************************
-  url[s]
+  full[s]
 ***************************************/
 
-const url = fill (base, path)
+const full = fill (base, path)
 
 /**************************************/
 
-export default { base, path, url }
-export { base, path, url }
+export default { base, path, full }
+export { base, path, full }
