@@ -20,9 +20,9 @@ const App = () => {
   return (
     <Router>
       <SavedList list={savedList} />
-      <Route exact path={client.to.root ()} component={MovieList} />
+      <Route exact path={client.path.root ()} component={MovieList} />
       <Route
-        path={client.to.oneMovie (':id')}
+        path={client.path.oneMovie.VIEW (':id')}
         render={(props) => {
           return <Movie {...props} addToSavedList={addToSavedList} />
         }}

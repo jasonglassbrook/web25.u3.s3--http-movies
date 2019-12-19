@@ -11,7 +11,7 @@ export default class SavedList extends Component {
         {this.props.list.map ((movie) => {
           return (
             <NavLink
-              to={client.to.allMovies ()}
+              to={client.path.allMovies.VIEW ()}
               key={movie.id}
               activeClassName='saved-active'
             >
@@ -20,7 +20,7 @@ export default class SavedList extends Component {
           )
         })}
         <div className='home-button'>
-          <Link to={client.to.root ()}>Home</Link>
+          <Link to={client.path.root ()}>Home</Link>
         </div>
       </div>
     )

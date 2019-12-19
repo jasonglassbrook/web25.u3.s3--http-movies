@@ -1,24 +1,46 @@
 import fill from './_fill';
 
-/**************************************/
+/***************************************
+  base
+***************************************/
 
-/// route, route.base ///
-const route = {
-  base : ''
+const base = ''
+
+/***************************************
+  path[s]
+***************************************/
+
+/// .root ///
+const root = () => ('/')
+
+/// .allMovies ///
+const allMovies = {}
+allMovies.VIEW =
+  () => (`/movies`)
+
+/// .oneMovie ///
+const oneMovie = {}
+oneMovie.VIEW =
+  (id) => (`/movies/${id}`)
+oneMovie.EDIT =
+  (id) => (`/movies/${id}/edit`)
+oneMovie.DELETE =
+  (id) => (`/movies/${id}/delete`)
+
+/// assemble! ///
+const path = {
+  root,
+  allMovies,
+  oneMovie,
 }
 
-/// route.to ///
-route.to = {}
-route.to.root =
-  () => (`/`)
-route.to.allMovies =
-  () => (`/movies`)
-route.to.oneMovie =
-  (id) => (`/movies/${id}`)
+/***************************************
+  url[s]
+***************************************/
 
-/// route.url ///
-route.url = fill (route.base, route.to)
+const url = fill (base, path)
 
 /**************************************/
 
-export default route
+export default { base, path, url }
+export { base, path, url }

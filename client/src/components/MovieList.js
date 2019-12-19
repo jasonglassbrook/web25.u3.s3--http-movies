@@ -38,7 +38,7 @@ export default class MovieList extends Component {
 
 function MovieDetails ({ movie }) {
   return (
-    <Link to={client.to.oneMovie (movie.id)}>
+    <Link to={client.path.oneMovie.VIEW (movie.id)}>
       <MovieCard movie={movie} />
     </Link>
   )
