@@ -6,7 +6,12 @@ import MovieCard from './MovieCard'
 
 import { client, server } from 'routes'
 
-const to = client.path.movies.one
+const onServer = {
+  toMovie : server.full.movies.one,
+}
+const onClient = {
+  toMovie : client.path.movies.one,
+}
 
 export default class Movie extends React.Component {
   constructor (props) {
@@ -28,7 +33,7 @@ export default class Movie extends React.Component {
 
   fetchMovie = (id) => {
     axios
-      .get (server.full.movies.one.GET (id))
+      .get (onServer.toMovie.GET (id))
       .then ((response) => this.setState ({ movie: response.data }))
       .catch ((error) => console.log (error.response))
   }
@@ -50,10 +55,10 @@ export default class Movie extends React.Component {
         <div className='save-button' onClick={this.saveMovie}>
           Save
         </div>
-        <Link to={to.EDIT (this.state.movie.id)}>
+        <Link to={onClient.toMovie.EDIT (this.state.movie.id)}>
           Edit
         </Link>
-        <Link to={to.DELETE (this.state.movie.id)}>
+        <Link to={onClient.toMovie.DELETE (this.state.movie.id)}>
           Delete
         </Link>
       </div>

@@ -2,9 +2,17 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import MovieCard from './MovieCard'
+
 import { client, server } from 'routes'
 
-import MovieCard from './MovieCard'
+const onServer = {
+  toMovieList : server.full.movies.all,
+}
+const onClient = {
+  toMovie : client.path.movies.one,
+}
+
 export default class MovieList extends Component {
   constructor (props) {
     super (props)
@@ -15,7 +23,7 @@ export default class MovieList extends Component {
 
   componentDidMount () {
     axios
-    .get (server.full.movies.all.GET ())
+    .get (onServer.toMovieList.GET ())
     .then ((response) => {
       console.log (response);
       this.setState ({ movies: response.data })
@@ -38,7 +46,7 @@ export default class MovieList extends Component {
 
 function MovieDetails ({ movie }) {
   return (
-    <Link to={client.path.movies.one.VIEW (movie.id)}>
+    <Link to={onClient.toMovie.VIEW (movie.id)}>
       <MovieCard movie={movie} />
     </Link>
   )

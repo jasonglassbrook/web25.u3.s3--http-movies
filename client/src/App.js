@@ -4,14 +4,20 @@ import {
   Route,
 } from 'react-router-dom'
 
-import { client } from 'routes'
-
 import SavedList from 'components/SavedList'
 import MovieList from 'components/MovieList'
 import Movie from 'components/Movie'
 // import AddMovieForm from 'components/AddMovieForm'
 import EditMovieForm from 'components/EditMovieForm'
 import DeleteMovieForm from 'components/DeleteMovieForm'
+
+import { client } from 'routes'
+
+const onClient = {
+  toHome : client.path.root,
+  toMovieList : client.path.movies.all,
+  toMovie : client.path.movies.one,
+}
 
 const App = () => {
   const [ savedList, setSavedList ] = useState ([])
@@ -25,13 +31,13 @@ const App = () => {
       <SavedList list={savedList}/>
       <Route
         exact path={[
-          client.path.root (),
-          client.path.movies.all.VIEW (),
+          onClient.toHome (),
+          onClient.toMovieList.VIEW (),
         ]}
         component={MovieList}
       />
       <Route
-        exact path={client.path.movies.one.VIEW (':id')}
+        exact path={onClient.toMovie.VIEW (':id')}
         render={(props) => (
           <Movie {...props}
           addToSavedList={addToSavedList}
@@ -39,13 +45,13 @@ const App = () => {
         )}
       />
       <Route
-        exact path={client.path.movies.one.EDIT (':id')}
+        exact path={onClient.toMovie.EDIT (':id')}
         render={(props) => (
           <EditMovieForm {...props}/>
         )}
       />
       <Route
-        exact path={client.path.movies.one.DELETE (':id')}
+        exact path={onClient.toMovie.DELETE (':id')}
         render={(props) => (
           <DeleteMovieForm {...props}/>
         )}

@@ -3,6 +3,11 @@ import { NavLink, Link } from 'react-router-dom'
 
 import { client } from 'routes'
 
+const onClient = {
+  toHome : client.path.root,
+  toMovie : client.path.movies.one,
+}
+
 export default class SavedList extends Component {
   render () {
     return (
@@ -11,7 +16,7 @@ export default class SavedList extends Component {
         {this.props.list.map ((movie) => {
           return (
             <NavLink
-            to={client.path.movies.one.VIEW (movie.id)}
+            to={onClient.toMovie.VIEW (movie.id)}
             key={movie.id}
             activeClassName='saved-active'
             >
@@ -20,7 +25,7 @@ export default class SavedList extends Component {
           )
         })}
         <div className='home-button'>
-          <Link to={client.path.root ()}>Home</Link>
+          <Link to={onClient.toHome ()}>Home</Link>
         </div>
       </div>
     )
